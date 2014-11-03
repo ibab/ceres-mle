@@ -2,7 +2,6 @@
 from numpy import *
 import matplotlib.pyplot as plt
 from scipy.stats import norm
-import statsmodels.api as sm
 
 def nbins(x):
     n =  (max(x) - min(x)) / (2 * len(x)**(-1/3) * (percentile(x, 75) - percentile(x, 25)))
@@ -21,8 +20,3 @@ plt.errorbar(center, h, sqrt(h), fmt='ko', markersize=5)
 plt.plot(xs, y, 'b-')
 plt.xlim(-5, 5)
 plt.savefig('out.pdf')
-
-plt.clf()
-sm.qqplot(data, line='45')
-plt.savefig('qq.pdf')
-
